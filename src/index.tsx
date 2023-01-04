@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/css/tailwind.css';
-import WebApplication from './views/home/App';
+import App from './views/home/App';
 // import reportWebVitals from '../reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <WebApplication />
+    <App />
   </React.StrictMode>
 );
 

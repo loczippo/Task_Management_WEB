@@ -1,10 +1,32 @@
 import React from 'react';
-import { Sliderbar, Home } from '../../components/'
+import { SliderbarPrimary, SliderbarSeconds, Home } from '../../components/'
 
-function WebApplication() {
+function App() {
   return (
     <>
-      <div className='flex'>
+      {/* App With SliderBar */}
+      <div className="App_withSidebar flex min-h-screen">
+        {/* SliderBar Wrap */}
+        <div className="App_sidebarWrap flex-shrink-0">
+          <SliderbarPrimary/>
+        </div>
+        <div className="App_sidebarWrap_toggle">
+          <SliderbarSeconds/>
+        </div>
+        <div className='pl-5 pr-5'>
+            <Home/>
+        </div>
+        {/* App Width SliderBar Content */}
+        {/* <div className="py-0 pr-10 pl-5 max-w-[calc(100%-48px)] flex-1">
+          <section className="max-w-[1920px] w-[100%] p-0 my-0 mx-auto">
+            <Home />
+          </section>
+        </div> */}
+      </div>
+
+
+
+      {/* <div className='flex'>
         <Sliderbar/>
         <div className='group/main ml-16'>
         <button className='group-hover/main:left-11 bg-red-500'>Toggle</button>
@@ -13,10 +35,10 @@ function WebApplication() {
           </section>
         </div>
         <div className='ml-20'><Home/></div>
-      </div>
+      </div> */}
       
     </>
   );
 }
 
-export default WebApplication;
+export default App;

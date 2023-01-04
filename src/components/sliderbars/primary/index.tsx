@@ -4,9 +4,9 @@ import PeopleIcon from '@mui/icons-material/People';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import React from 'react';
 
-function Sliderbar() {
+function sliderBarPrimary() {
   return (
-    <nav className="group/main fixed inset-0 right-auto box-border flex flex-row-reverse top-0, z-[103]">
+    <div className='Sidebar_wrapper h-full'>
         <section className="relative flex h-full flex-col items-center justify-between bg-gray-500 text-white w-12">
             <div>
                 <div className='relative items-center flex flex-col w-8 mt-1'>
@@ -46,9 +46,8 @@ function Sliderbar() {
                 </div>
             </div>
         </section>
-        
-    </nav>
+    </div>
   );
 }
 
-export default Sliderbar;
+export default sliderBarPrimary;

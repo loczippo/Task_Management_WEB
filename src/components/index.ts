@@ -1,4 +1,5 @@
-import Sliderbar from './sliderbar';
+import SliderbarPrimary from './sliderbars/primary';
+import SliderbarSeconds from './sliderbars/second';
 import Home from './home';
 
-export {Sliderbar, Home}
+export {SliderbarPrimary, SliderbarSeconds, Home}
