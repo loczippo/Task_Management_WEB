@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/67520897/check-user-inactivity-throughout-the-component-in-reactjs
+https://anonystick.com/blog-developer/su-dung-axios-interceptors-lam-moi-token-voi-refresh-token-trong-jwt-2020071757634479
+https://www.geeksforgeeks.org/how-to-create-load-balancing-servers-using-node-js/
+https://plan.toggl.com/#timeline/881244/teams/903728?zoom=month
+https://dev.to/djamaile/how-i-structure-my-react-ts-applications-160g
+https://github.com/klendi/react-top-loading-bar
