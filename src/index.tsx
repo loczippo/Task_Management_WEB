@@ -4,7 +4,7 @@ import './assets/css/tailwind.css';
 import App from './views/home/App';
 // import reportWebVitals from '../reportWebVitals';
 import { Provider } from 'react-redux'
-import store from "./stores";
+import { store } from "./stores";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

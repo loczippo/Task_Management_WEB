@@ -1,20 +1,34 @@
-import {createSlice} from '@reduxjs/toolkit';
-const SliderBarSlice = createSlice({
-    name: 'SliderBar', // tên chuỗi xác định slice
-    initialState: true, // giá trị khởi tạo ban đầu
-    reducers: { // tạo các actions
-        Increase(state, action) { 
-            state = action.payload;
-            return state;
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import type { RootState } from '../../stores'
 
-        },
-        Decrease(state, action) { //action decrease
-            state = action.payload;
-            return state;
-        },
+interface SliderbarState {
+    value: boolean;
+}
+
+const initialState: SliderbarState = {
+    value: localStorage.getItem('toggled') === 'false' ? false : true
+}
+
+export const sliderbarSlice = createSlice({
+    name: 'sliderbar',
+    initialState,
+    reducers: {
+      increment: state => {
+        state.value = false;
+      },
+      decrement: state => {
+        state.value = true;
+      },
+      // Use the PayloadAction type to declare the contents of `action.payload`
+      incrementByAmount: (state, action: PayloadAction<boolean>) => {
+        state.value = action.payload
+      }
     }
-})
-
-const { actions, reducer } = SliderBarSlice
-export const {Increase, Decrease} = actions // export action
-export default reducer //ngầm hiểu chúng ta đang export counterSlice
+  })
+  
+  export const { increment, decrement, incrementByAmount } = sliderbarSlice.actions
+  
+  // Other code such as selectors can use the imported `RootState` type
+  export const selectCount = (state: RootState) => state.counter.value
+  
+  export default sliderbarSlice.reducer

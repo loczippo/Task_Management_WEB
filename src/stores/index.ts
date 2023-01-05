@@ -3,13 +3,12 @@ import couterReducer from './counter';
 const { configureStore } = require("@reduxjs/toolkit");
 
 
-const rootReducer = {
-    counter: couterReducer,
-    sliderbar: SliderBarReducer,
-}
-
-const store = configureStore({
-    reducer: rootReducer,
+export const store = configureStore({
+    reducer: {
+        counter: couterReducer,
+        sliderbar: SliderBarReducer,
+    }
 })
 
-export default store
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

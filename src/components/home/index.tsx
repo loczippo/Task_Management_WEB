@@ -8,7 +8,7 @@ function Home() {
     <div className="flex-1">
       <div className='h-full flex flex-col'>
           <ToggleButton {...data} />
-          <div className='overflow-x-auto lg:break-all pl-5 pr-5'>
+          <div className='overflow-x-auto break-all pl-5 pr-5'>
           <h1>Home componenttttttttttttttttttttttttttttttttttttttttttttttttttaccccccccccccccccccccccccccccccccccccccccccccccccccccccccccckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk12312312312312321312321321312</h1>
           <h1>Home component</h1>
           <h1>Home component</h1>

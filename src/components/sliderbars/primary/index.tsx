@@ -7,7 +7,7 @@ import React from 'react';
 function sliderBarPrimary() {
   return (
     <div className='Sidebar_wrapper h-full'>
-        <section className="md:h-6 lg:h-full relative flex h-full  flex-col items-center justify-between bg-gray-500 text-white w-12">
+        <section className="relative flex h-full  flex-col items-center justify-between bg-gray-500 text-white w-12">
             <div>
                 <div className='relative items-center flex flex-col w-8 mt-1'>
                     <a href="home" className="items-center flex h-8 justify-center mb-[9px] w-8 bg-gray-900 rounded-full transition-transform transform duration-200 hover:scale-[1.2] ease-in-out">

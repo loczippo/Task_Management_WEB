@@ -1,22 +1,11 @@
-import { useSelector } from "react-redux";
-import { IToggle } from "../../../interface/toggle.interface";
-import { Decrease } from "../../../stores/sliderbar";
-import { useEffect } from "react";
+
+import { useAppSelector } from '../../../hooks'
 
 function SliderBarSecond() {
-
-    const toggle: any = useSelector(Decrease);
-
-    let toggleData = toggle.sliderbar;
-
-    // useEffect(()=> {
-    //     toggleData = !toggleData;
-    //     console.log(toggleData)
-    // }, [toggleData]);
-
+    const isToggle = useAppSelector(state => state.sliderbar.value)
   return (
     <div className='Sidebar_wrapper h-full overflow-hidden duration-500 ease-in-out transform'>
-        <section className={`overflow-hidden flex h-full flex-col items-center justify-between bg-red-500 text-white transition-all ${(toggleData)? "w-60" : "w-0" }`}>
+        <section className={`overflow-hidden flex h-full flex-col items-center justify-between bg-red-500 text-white transition-all ${(isToggle)? "w-60" : "w-0" }`}>
             <div className="sliderbar_header relative flex flex-col bg-amber-500 w-full">
                 <div className="h-[88px]">
                     SLIDERBAR_HEADER
