@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       {/* App With SliderBar */}
-      <div className="App_withSidebar flex min-h-screen">
+      <div className="App_withSidebar flex w-full fixed inset-0">
         {/* SliderBar Wrap */}
         <div className="App_sidebarWrap flex-shrink-0">
           <SliderbarPrimary/>
@@ -13,9 +13,7 @@ function App() {
         <div className="App_sidebarWrap_toggle">
           <SliderbarSeconds/>
         </div>
-        <div className='pl-5 pr-5'>
-            <Home/>
-        </div>
+        <Home/>
         {/* App Width SliderBar Content */}
         {/* <div className="py-0 pr-10 pl-5 max-w-[calc(100%-48px)] flex-1">
           <section className="max-w-[1920px] w-[100%] p-0 my-0 mx-auto">
