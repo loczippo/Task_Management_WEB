@@ -1,5 +1,9 @@
 import React from 'react';
-import { SliderbarPrimary, SliderbarSeconds, Home } from '../../components/'
+import { Routes, Route } from 'react-router-dom'
+
+import { SliderbarPrimary, SliderbarSeconds } from './components'
+
+import { HomeView, NewsView, ErrorView } from './views';
 
 function App() {
   return (
@@ -13,7 +17,11 @@ function App() {
         <div className="App_sidebarWrap_toggle">
           <SliderbarSeconds/>
         </div>
-        <Home/>
+          <Routes>
+            <Route path='/news' element={<NewsView/>} />
+            <Route path='/' element={<HomeView/>} />
+            <Route path='*' element={<ErrorView/>} />
+          </Routes>
         {/* App Width SliderBar Content */}
         {/* <div className="py-0 pr-10 pl-5 max-w-[calc(100%-48px)] flex-1">
           <section className="max-w-[1920px] w-[100%] p-0 my-0 mx-auto">

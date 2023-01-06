@@ -6,7 +6,15 @@
     body {
       font-family: Montserrat, sans-serif;
     }
-    * {
+    
+    
+  }
+  * {
       box-sizing: inherit;
     }
-  }
+    @layer components {
+    
+    }
+    .active {
+        @apply rounded-lg bg-gray-700
+      }

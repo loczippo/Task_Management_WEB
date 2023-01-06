@@ -1,4 +1,4 @@
-import { ToggleButton } from '../../components/'
+import { ToggleButton } from '../../components'
 import { IToggle } from '../../interface/toggle.interface';
 
 function Home() {
