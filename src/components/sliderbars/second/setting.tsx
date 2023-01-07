@@ -25,7 +25,7 @@ function SliderBarSecond() {
             </div>
             <div className="sliderbar_header flex flex-col bg-pink-500 w-full h-full">
                 <div className='pl-2 pr-2 h-1 items-center align-middle'>
-                    <h1>SLIDERBAR_BODY</h1>
+                    <h1>SLIDERBAR_SETTING</h1>
                 </div>
             </div>
         </section>

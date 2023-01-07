@@ -6,6 +6,7 @@ import { SliderbarPrimary, SliderbarSeconds } from './components'
 import { HomeView, NewsView, ErrorView } from './views';
 
 function App() {
+
   return (
     <>
       {/* App With SliderBar */}

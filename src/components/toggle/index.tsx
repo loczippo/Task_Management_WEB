@@ -12,17 +12,17 @@ function ToggleButton({...props}: IToggle) {
     const isToggle = useAppSelector(state => state.sliderbar.value)
     const dispatch = useAppDispatch()
 
-    let init = localStorage.getItem('toggled') === 'false' ? true : false;
+    let init = localStorage.getItem('toggled') === 'false' ? false : true;
 
     let [ToggleMenu, setToggleMenu] = useState(init);
 
     let ToggleMenuHandler = () => {
         setToggleMenu((ToggleMenu = !ToggleMenu))
         if(ToggleMenu) {
-            const action = increment();
+            const action = decrement();
             dispatch(action);
         } else {
-            const action = decrement();
+            const action = increment();
             dispatch(action);
         }
     };
@@ -39,8 +39,8 @@ function ToggleButton({...props}: IToggle) {
                     <button className='mr-1' onClick={ToggleMenuHandler}>{isToggle ? (<MenuOpenIcon/>) : (<MenuIcon/>)}</button>
                     <b>{name}</b>
                 </div>
-                <div className='ml-3 mr-3 pl-5 pr-5 bg-violet-500 rounded-full h-7'>
-                    <button className='h-full'>test</button>
+                <div className='ml-3 mr-3 pl-5 pr-5 bg-violet-500 rounded-lg h-7'>
+                    <button className='h-full text-white'>test</button>
                 </div>
             </div>
         </div>
