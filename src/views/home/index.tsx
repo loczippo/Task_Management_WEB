@@ -1,5 +1,5 @@
 import { ToggleButton } from '../../components'
-import { IToggle } from '../../interface/toggle.interface';
+import { IToggle } from '../../interfaces/toggle.interface';
 
 function Home() {
 
