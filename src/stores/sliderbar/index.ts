@@ -1,34 +1,33 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../stores'
-
-interface SliderbarState {
-    value: boolean;
-}
-
-const initialState: SliderbarState = {
-    value: localStorage.getItem('toggled') === 'false' ? false : true
+import { PrimarySliderBarEnum } from '../../enums';
+import { SliderbarValue } from '../../interfaces/sliderbar.interface';
+// import type { RootState } from '../../stores'
+import { getSliderBarMenu, getToggle } from '../../utils/sliderbar';
+const initialState: SliderbarValue = {
+    value: getToggle(),
+    menu: getSliderBarMenu(),
 }
 
 export const sliderbarSlice = createSlice({
     name: 'sliderbar',
     initialState,
     reducers: {
-      increment: state => {
-        state.value = false;
-      },
-      decrement: state => {
+      increment: (state) => {
         state.value = true;
       },
-      // Use the PayloadAction type to declare the contents of `action.payload`
-      incrementByAmount: (state, action: PayloadAction<boolean>) => {
-        state.value = action.payload
-      }
+      decrement: (state) => {
+        state.value = false;
+      },
+      setSecondSliderBarMenu: (state, action: PayloadAction<PrimarySliderBarEnum>) => {
+        state.menu = action.payload;
+        state.value = false;
+      },
     }
   })
   
-  export const { increment, decrement, incrementByAmount } = sliderbarSlice.actions
+  export const { increment, decrement, setSecondSliderBarMenu } = sliderbarSlice.actions
   
   // Other code such as selectors can use the imported `RootState` type
-  export const selectCount = (state: RootState) => state.counter.value
+  // export const selectCount = (state: RootState) => state.counter.value
   
   export default sliderbarSlice.reducer
