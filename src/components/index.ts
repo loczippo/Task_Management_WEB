@@ -1,5 +1,5 @@
 import SliderbarPrimary from './sliderbars/primary';
-import SliderbarSeconds from './sliderbars/second';
+import { SliderBarSecondDefault, SliderBarSecondSettings, SliderBarSecondUsers } from './sliderbars/seconds/';
 import ToggleButton from './toggle'
 
-export {SliderbarPrimary, SliderbarSeconds, ToggleButton}
+export {SliderbarPrimary, SliderBarSecondDefault, SliderBarSecondSettings, SliderBarSecondUsers, ToggleButton}
