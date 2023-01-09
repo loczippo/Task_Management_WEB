@@ -16,6 +16,7 @@
       --gray-text: #817187;
       --black-text: #1d0b24;
       --button-icon-color: #8b50e8;
+      --blur-text: #a397a8;
     }
   }
   * {
@@ -35,6 +36,10 @@
     .searchInput:empty::before {
       @apply font-medium text-[13px] text-[var(--gray-text)];
       content:attr(data-placeholder);
+    }
+    
+    .teamsIcon {
+      @apply text-xl font-semibold !important
     }
     
     

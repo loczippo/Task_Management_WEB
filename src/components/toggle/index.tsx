@@ -34,7 +34,7 @@ function ToggleButton({...props}: IToggle): ReactJSXElement {
 
     return (
         
-        <div className="top-0 bg-green-500 w-full items-center">
+        <div className="top-0 bg-[var(--white-text)] w-full items-center">
             <div className="py-5 flex justify-between">
                 <div className='pl-3 pr-3 flex items-center leading-[0px]'>
                     <button className='mr-1' onClick={ToggleMenuHandler}>{isToggle ? (<MenuOpenIcon/>) : (<MenuIcon/>)}</button>
