@@ -7,8 +7,12 @@ import WorkOffIcon from '@mui/icons-material/WorkOff';
 import AddIcon from '@mui/icons-material/Add';
 import PeopleIcon from '@mui/icons-material/People';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Brightness1Icon from '@mui/icons-material/Brightness1';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import VerticalSplitIcon from '@mui/icons-material/VerticalSplit';
 import { useAppSelector } from '../../../hooks'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function SliderBarSecondDefault() {
     const isToggle = useAppSelector(state => state.sliderbar.value)
@@ -35,47 +39,128 @@ function SliderBarSecondDefault() {
                     </div>
                 </div> 
             </div>
-            <div className="sliderbar_header flex flex-col w-full h-56 pt-1 pb-1 scrollbar">
-                <NavLink to="1" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <NotificationsIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>Notifications</h1>
-                </NavLink>
-                <NavLink to="/home" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <FormatListBulletedIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>My work</h1>
-                </NavLink>
-                <NavLink to="3" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <FactCheckIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>My plans</h1>
-                </NavLink>
-                <NavLink to="4" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <WorkOffIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>Time off</h1>
-                </NavLink>
-            </div>
-            <div className="sliderbar_header flex justify-between w-full pt-1 pb-1 uppercase">
-                <div className='text-[10px] text-[var(--blur-text)] font-bold pt-1 pb-1 pl-3 pr-2'>Teams</div>
-                <AddIcon className='teamsIcon text-[var(--blur-text)] font-bold pr-2'/>
-            </div>
-            <div className="sliderbar_header flex flex-col w-full pb-1">
-                <NavLink to="asdasdas" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <PeopleIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>My Team</h1>
-                </NavLink>
-                <NavLink to="abasd" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <PeopleIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>My Team 2</h1>
-                </NavLink>
-            </div>
-            <div className="sliderbar_header flex justify-between w-full pt-2 pb-1 uppercase">
-                <div className='text-[10px] text-[var(--blur-text)] font-bold pt-1 pb-1 pl-3 pr-2'>Project</div>
-                <AddIcon className='teamsIcon text-[var(--blur-text)] font-bold pr-2'/>
-            </div>
-            <div className="sliderbar_header flex flex-col w-full h-full pb-1">
-                <NavLink to="asdasdasaaaa" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                    <ArrowRightIcon className='bodyIcon'/>
-                    <h1 className='pl-1'>My Project</h1>
-                </NavLink>
+            <div className='scrollbar flex flex-col w-full h-full pt-1 pb-1'>
+                <div className="sliderbar_header">
+                    <NavLink to="1" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <NotificationsIcon className='bodyIcon'/>
+                        <h1 className='pl-[6px]'>Notifications</h1>
+                    </NavLink>
+                    <NavLink to="/home" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <FormatListBulletedIcon className='bodyIcon'/>
+                        <h1 className='pl-[6px]'>My work</h1>
+                    </NavLink>
+                    <NavLink to="3" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <FactCheckIcon className='bodyIcon'/>
+                        <h1 className='pl-[6px]'>My plans</h1>
+                    </NavLink>
+                    <NavLink to="4" className='flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <WorkOffIcon className='bodyIcon'/>
+                        <h1 className='pl-[6px]'>Time off</h1>
+                    </NavLink>
+                </div>
+                <div className="sliderbar_header flex justify-between w-full pt-1 pb-1 uppercase">
+                    <div className='text-[10px] text-[var(--blur-text)] font-semibold pt-1 pb-1 pl-3 pr-2'>Teams</div>
+                    <AddIcon className='teamsIcon text-[var(--blur-text)] font-semibold pr-2'/>
+                </div>
+                <div className="sliderbar_header flex flex-col w-full pb-1">
+                    <NavLink to="asdasdas" className='relative group flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <PeopleIcon className='bodyIcon'/>
+                        <h1 className='pl-3'>My Team</h1>
+                        <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover:visible'>
+                            <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
+                        </div>
+                    </NavLink>
+                    <NavLink to="abasd" className='relative group flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <PeopleIcon className='bodyIcon'/>
+                        <h1 className='pl-3'>My Team 2</h1>
+                        <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover:visible'>
+                            <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
+                        </div>
+                    </NavLink>
+                </div>
+                <div className="sliderbar_header flex justify-between w-full pt-2 pb-1 uppercase">
+                    <div className='text-[10px] text-[var(--blur-text)] font-semibold pt-1 pb-1 pl-3 pr-2'>Project</div>
+                    <AddIcon className='teamsIcon text-[var(--blur-text)] font-semibold pr-2'/>
+                </div>
+                <div className="sliderbar_header flex flex-col w-full pb-1">
+                    <div className='relative group/item flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <ArrowRightIcon className='mediumIcon'/>
+                        <Brightness1Icon className='text-red-500 miniIcon pl-1 pr-1'/>
+                        <h1 className='pl-1'>Project 1</h1>
+                        <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover/item:visible'>
+                            <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
+                        </div>
+                    </div>
+                    <div className=''> 
+                        <div className='flex flex-col w-full'>
+                            <NavLink to="asdas555ssdas" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <VerticalSplitIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Timeline</h1>
+                            </NavLink>
+                        </div>
+                        <div className='flex flex-col w-full pb-1'>
+                            <NavLink to="asdas555das" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <TableChartIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Board</h1>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div className="sliderbar_header flex flex-col w-full pb-1">
+                    <Link to="aasd22" className='relative group flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <ArrowRightIcon className='mediumIcon'/>
+                        <Brightness1Icon className='text-green-500 miniIcon pl-1 pr-1'/>
+                        <h1 className='pl-1'>Project 2</h1>
+                        <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover:visible'>
+                            <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
+                        </div>
+                    </Link>
+                    <div className=''> 
+                        <div className='flex flex-col w-full'>
+                            <NavLink to="asdas555sasdsdas" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <VerticalSplitIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Timeline</h1>
+                            </NavLink>
+                        </div>
+                        <div className='flex flex-col w-full pb-1'>
+                            <NavLink to="asdas55454555das" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <TableChartIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Board</h1>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div className="sliderbar_header flex flex-col w-full pb-1">
+                    <Link to="aasd22" className='relative group flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <ArrowRightIcon className='mediumIcon'/>
+                        <Brightness1Icon className='text-yellow-500 miniIcon pl-1 pr-1'/>
+                        <h1 className='pl-1'>Project 3</h1>
+                        <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover:visible'>
+                            <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
+                        </div>
+                    </Link>
+                    <div className='hidden'> 
+                        <div className='flex flex-col w-full'>
+                            <NavLink to="asdas555aaassdas" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <VerticalSplitIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Timeline</h1>
+                            </NavLink>
+                        </div>
+                        <div className='flex flex-col w-full pb-1'>
+                            <NavLink to="asdas55ssaz5das" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                                <TableChartIcon className='bodyIcon'/>
+                                <h1 className='pl-3'>Board</h1>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div className="sliderbar_header flex justify-between w-full pt-2 pb-1 uppercase">
+                    <div className='text-[10px] text-[var(--blur-text)] font-semibold pt-1 pb-1 pl-3 pr-2'>Clients</div>
+                    <AddIcon className='teamsIcon text-[var(--blur-text)] font-semibold pr-2'/>
+                </div>
+                <div className='w-full pt-1 pb-1'>
+                    <span className='pl-3 text-[10px] text-[var(--blur-text)]'>No client. Add a new client above.</span>
+                </div>
             </div>
         </section>
     </div>

@@ -39,7 +39,13 @@
     }
     
     .teamsIcon {
-      @apply text-xl font-semibold !important
+      @apply text-[22px] !important
+    }
+    .mediumIcon {
+      @apply text-[26px] !important;
+    }
+    .miniIcon {
+      @apply text-[9px] !important;
     }
     
     
