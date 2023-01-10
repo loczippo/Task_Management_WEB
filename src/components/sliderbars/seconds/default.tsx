@@ -83,15 +83,17 @@ function SliderBarSecondDefault() {
                     <AddIcon className='teamsIcon text-[var(--blur-text)] font-semibold pr-2'/>
                 </div>
                 <div className="sliderbar_header flex flex-col w-full pb-1">
-                    <div className='relative group/item flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
-                        <ArrowRightIcon className='mediumIcon'/>
+                    <div className='relative group/item group/icon flex justify-start pt-1 pb-1 pl-3 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
+                        <div className='duration-500 transition-all group-hover/icon:rotate-90'>
+                            <ArrowRightIcon className='mediumIcon'/>
+                        </div>
                         <Brightness1Icon className='text-red-500 miniIcon pl-1 pr-1'/>
                         <h1 className='pl-1'>Project 1</h1>
                         <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover/item:visible'>
                             <MoreVertIcon className='primaryIcon text-[var(--blur-text)]'/>
                         </div>
                     </div>
-                    <div className=''> 
+                    <div className='hidden'> 
                         <div className='flex flex-col w-full'>
                             <NavLink to="asdas555ssdas" className='flex justify-start pt-1 pb-1 pl-10 pr-2 items-center align-middle text-[13px] font-medium leading-6 cursor-pointer hover:bg-[var(--hover-color)]'>
                                 <VerticalSplitIcon className='bodyIcon'/>
