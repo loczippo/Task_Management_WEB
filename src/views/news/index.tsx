@@ -3,7 +3,7 @@ import { IToggle } from '../../interfaces/toggle.interface';
 
 function Home() {
 
-  const data: IToggle = {name: "News"};
+  const data: IToggle = {title: "News"};
   return (
     <div className="flex-1">
       <div className='h-full flex flex-col'>

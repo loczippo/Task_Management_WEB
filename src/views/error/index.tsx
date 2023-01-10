@@ -2,7 +2,7 @@ import { ToggleButton } from "../../components";
 import { IToggle } from "../../interfaces/toggle.interface";
 
 function ErrorView() {
-    const data: IToggle = {name: "Page not found"};
+    const data: IToggle = {title: "Page not found"};
     return (
       <div className="flex-1">
         <div className='h-full flex flex-col'>

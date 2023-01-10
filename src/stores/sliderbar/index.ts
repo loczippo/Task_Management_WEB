@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { PrimarySliderBarEnum } from '../../enums';
 import { SliderbarValue } from '../../interfaces/sliderbar.interface';
 // import type { RootState } from '../../stores'
-import { getSliderBarMenu, getToggle } from '../../utils/sliderbar';
+import { getSliderBarMenu, getToggle } from '../../utils';
 const initialState: SliderbarValue = {
     value: getToggle(),
     menu: getSliderBarMenu(),

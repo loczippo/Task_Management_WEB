@@ -1,4 +1,4 @@
 export interface IToggle {
-    name?: string;
+    title?: string;
     sliderbar?: boolean; 
 }
