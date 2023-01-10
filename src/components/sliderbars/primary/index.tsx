@@ -2,17 +2,14 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import HelpIcon from '@mui/icons-material/Help';
 import PeopleIcon from '@mui/icons-material/People';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PrimarySliderBarEnum } from '../../../enums/'
-import { useAppDispatch, useAppSelector } from '../../../hooks'
-import { decrement, increment, setSecondSliderBarMenu } from '../../../stores/sliderbar'
-import { getToggle, setSliderBarMenu, setToggle } from '../../../utils/sliderbar';
-import { SliderbarState } from '../../../interfaces/sliderbar.interface';
+import { useAppDispatch } from '../../../hooks'
+import { setSecondSliderBarMenu } from '../../../stores/sliderbar'
+import { setSliderBarMenu } from '../../../utils';
 
 function SliderBarPrimary() {
 
-    const isToggle = useAppSelector((state: SliderbarState) => state.sliderbar.value)
 
     const dispatch = useAppDispatch()
 

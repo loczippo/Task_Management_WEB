@@ -6,11 +6,11 @@ import { decrement, increment,} from '../../stores/sliderbar'
 import { useAppSelector, useAppDispatch } from '../../hooks'
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { SliderbarState } from '../../interfaces/sliderbar.interface';
-import { getToggle, setToggle } from '../../utils/sliderbar';
+import { setToggle } from '../../utils/sliderbar';
 
-function ToggleButton({...props}: IToggle): ReactJSXElement {
+function ToggleButton(props: IToggle): ReactJSXElement {
 
-    const { name }: IToggle = props;
+    const { title }: IToggle = props;
 
     const isToggle = useAppSelector((state: SliderbarState) => state.sliderbar.value)
     const dispatch = useAppDispatch()
@@ -38,7 +38,7 @@ function ToggleButton({...props}: IToggle): ReactJSXElement {
             <div className="py-5 flex justify-between">
                 <div className='pl-3 pr-3 flex items-center leading-[0px]'>
                     <button className='mr-1' onClick={ToggleMenuHandler}>{isToggle ? (<MenuOpenIcon/>) : (<MenuIcon/>)}</button>
-                    <b className='whitespace-nowrap'>{name}</b>
+                    <b className='whitespace-nowrap'>{title}</b>
                 </div>
                 <div className='ml-3 mr-3 pl-5 pr-5 bg-violet-500 rounded-lg h-7'>
                     <button className='h-full text-white'>Lộc nè</button>
