@@ -47,5 +47,8 @@
     .miniIcon {
       @apply text-[9px] !important;
     }
+    .avgIcon {
+      @apply text-[12.5px] !important;
+    }
     
     

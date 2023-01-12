@@ -40,7 +40,7 @@ function SliderBarPrimary() {
                     </Link>
                 </div>
                 <div className="group items-center flex flex-col w-8 mb-[9px]">
-                    <Link to="/#setting/me" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.SETTINGS)} className="items-center flex h-8 justify-center text-[var(--button-icon-color)] w-8 hover:bg-[var(--hover-color)] hover:rounded-lg">
+                    <Link to="/setting/me/profile" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.SETTINGS)} className="items-center flex h-8 justify-center text-[var(--button-icon-color)] w-8 hover:bg-[var(--hover-color)] hover:rounded-lg">
                         <SettingsIcon className='primaryIcon'/>
                     </Link>
                     <span className="pointer-events-none after:translate-x-[0.5px] group-hover:opacity-100 z-[9999999] transition-opacity bg-gray-800 px-2 text-sm text-gray-100 rounded-md absolute left-1/4 
@@ -50,7 +50,7 @@ function SliderBarPrimary() {
                     </span>
                 </div>
                 <div className="group items-center flex flex-col w-8 mb-[9px]">
-                    <Link to="/#user/home" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.USERS)} className="items-center flex h-8 justify-center text-[var(--button-icon-color)] w-8 hover:bg-[var(--hover-color)] hover:rounded-lg">
+                    <Link to="/user/home" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.USERS)} className="items-center flex h-8 justify-center text-[var(--button-icon-color)] w-8 hover:bg-[var(--hover-color)] hover:rounded-lg">
                         <PeopleIcon className='primaryIcon'/>
                     </Link>
                     <span className="pointer-events-none after:translate-x-[0.5px] group-hover:opacity-100 z-[9999999] transition-opacity bg-gray-800 px-2 text-sm text-gray-100 rounded-md absolute left-1/4 
