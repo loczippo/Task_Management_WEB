@@ -1,12 +1,12 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SliderbarPrimary, SliderBarSecondDefault, SliderBarSecondSettings, SliderBarSecondUsers } from './components'
 import AppRouter from './routes';
 import { useAppSelector } from './hooks'
 import { SliderbarState } from './interfaces/sliderbar.interface';
 import { PrimarySliderBarEnum } from './enums';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { LoginView } from './views';
 
 const renderSecondSliderBar = (menu: string): ReactJSXElement => {
   switch (menu) {
@@ -16,29 +16,13 @@ const renderSecondSliderBar = (menu: string): ReactJSXElement => {
   }
 }
 
-function Box({ children }: PropsWithChildren<unknown>) {
-  return (
-      <div
-          style={{
-              border: '1px solid #ccc',
-              display: 'block',
-              lineHeight: 2,
-              padding: '1rem',
-              marginBottom: '0.5rem',
-              width: 100,
-          }}
-      >
-          {children}
-      </div>
-  )
-}
-
 function App() {
   const sliderBarMenu = useAppSelector((state: SliderbarState) => state.sliderbar.menu)
 
-  const wrapped1 = <Skeleton wrapper={Box} count={5} />
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState('Loading');
+
+  const [isLogin] = useState(false);
 
   useEffect(() => {
     new Promise(() => {
@@ -52,7 +36,7 @@ function App() {
   }, [loadingText])
   return (
     <>
-      {!(isLoading) ? <div className="App_withSidebar flex w-full fixed inset-0">
+      {(isLogin) ? (!isLoading) ? <div className="App_withSidebar flex w-full fixed inset-0">
         <div className="App_sidebarWrap flex-shrink-0">
           <SliderbarPrimary />
         </div>
@@ -60,8 +44,7 @@ function App() {
           {renderSecondSliderBar(sliderBarMenu)}
         </div>
         <AppRouter />
-      </div> : <p className='text-base text-[var(--black-text)]'>{loadingText}</p>}
-
+      </div> : <p className='text-base text-[var(--black-text)]'>{loadingText}</p> : <LoginView />}
     </>
   );
 }

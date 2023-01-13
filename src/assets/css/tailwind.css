@@ -17,6 +17,9 @@
       --black-text: #1d0b24;
       --button-icon-color: #8b50e8;
       --blur-text: #a397a8;
+      --primary-color: #2c1138;
+      --bg-nav-login: rgba(234, 231, 235, 0.081);
+      --color-nav-login: rgba(44,17,56, 0.1);
     }
   }
   * {
