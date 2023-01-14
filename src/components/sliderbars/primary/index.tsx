@@ -35,7 +35,7 @@ function SliderBarPrimary() {
         <section className="relative flex h-full flex-col items-center justify-between bg-[var(--primary-sliderbar)] text-[var(--white-text)] w-[48px]">
             <div>
                 <div className='relative items-center flex flex-col w-8 mt-1'>
-                    <Link to="/" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.DEFAULT)} className="text-[var(--black-text)] items-center flex h-8 justify-center mb-[9px] w-8 bg-[var(--button-icon-color)] rounded-full transition-transform transform duration-[400ms] hover:scale-[1.12] ease-in-out">
+                    <Link to="/" onClick={() => SetSecondSliderBar(PrimarySliderBarEnum.DEFAULT)} className="text-[var(--black-text)] items-center flex h-8 justify-center mb-[9px] w-8 bg-[var(--button-icon-color)] rounded-full transition-transform origin-center transform duration-[400ms] hover:scale-[1.12] ease-in-out">
                         <WorkspacesIcon/>
                     </Link>
                 </div>
