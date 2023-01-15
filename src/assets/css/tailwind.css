@@ -3,55 +3,73 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
 @layer base {
-    body {
-      font-family: Montserrat, sans-serif;
-    }
-
-    :root {
-      --primary-sliderbar: #1d0b24;
-      --second-sliderbar: #371d42;
-      --hover-color: rgb(65, 42, 76);
-      --active-color: #5c329a;
-      --white-text: #eae7eb;
-      --gray-text: #817187;
-      --black-text: #1d0b24;
-      --button-icon-color: #8b50e8;
-      --blur-text: #a397a8;
-      --primary-color: #2c1138;
-      --bg-nav-login: rgba(234, 231, 235, 0.081);
-      --color-nav-login: rgba(44,17,56, 0.1);
-    }
+  body {
+    font-family: Montserrat, sans-serif;
   }
-  * {
-      box-sizing: inherit;
-      font-size: 0.96rem;
-    }
-    .active {
-        @apply bg-[var(--active-color)] !important;
-      }
-    .bodyIcon {
-      @apply text-base !important
-    }
-    .primaryIcon {
-      @apply text-xl !important
-    }
 
-    .searchInput:empty::before {
-      @apply font-medium text-[13px] text-[var(--gray-text)];
-      content:attr(data-placeholder);
-    }
-    
-    .teamsIcon {
-      @apply text-[22px] !important
-    }
-    .mediumIcon {
-      @apply text-[26px] !important;
-    }
-    .miniIcon {
-      @apply text-[9px] !important;
-    }
-    .avgIcon {
-      @apply text-[12.5px] !important;
-    }
-    
-    
+  :root {
+    --primary-sliderbar: #1d0b24;
+    --second-sliderbar: #371d42;
+    --hover-color: rgb(65, 42, 76);
+    --active-color: #5c329a;
+    --white-text: #eae7eb;
+    --gray-text: #817187;
+    --black-text: #1d0b24;
+    --button-icon-color: #8b50e8;
+    --blur-text: #a397a8;
+    --primary-color: #2c1138;
+    --bg-nav-login: rgba(234, 231, 235, 0.081);
+    --color-nav-login: rgba(44, 17, 56, 0.1);
+    --white-100: #ffffff;
+  }
+}
+* {
+  box-sizing: border-box;
+  font-size: 0.96rem;
+}
+.active {
+  @apply bg-[var(--active-color)] !important;
+}
+.bodyIcon {
+  @apply text-base !important;
+}
+.primaryIcon {
+  @apply text-xl !important;
+}
+
+.searchInput:empty::before {
+  @apply font-medium text-[13px] text-[var(--gray-text)];
+  content: attr(data-placeholder);
+}
+
+.teamsIcon {
+  @apply text-[22px] !important;
+}
+
+.boxIcon {
+  @apply text-[15px] !important;
+}
+
+.mediumIcon {
+  @apply text-[26px] !important;
+}
+.miniIcon {
+  @apply text-[9px] !important;
+}
+.avgIcon {
+  @apply text-[12.5px] !important;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 100rem;
+  background-color: var(--gray-text);
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 100rem;
+  background-color: #ccc;
+}

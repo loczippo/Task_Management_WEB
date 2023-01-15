@@ -8,6 +8,8 @@ import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import 'react-loading-skeleton/dist/skeleton.css'
 import { LoginView } from './views';
 
+import { ReactComponent as Loading } from './assets/img/loading.svg';
+
 const renderSecondSliderBar = (menu: string): ReactJSXElement => {
   switch (menu) {
     case PrimarySliderBarEnum.SETTINGS: return <SliderBarSecondSettings />
@@ -22,16 +24,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState('Loading');
 
-  const [isLogin] = useState(false);
+  const [isLogin] = useState(true);
 
   useEffect(() => {
     new Promise(() => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 3000)
-      setInterval(() => {
+      }, 999000);
+      setTimeout(() => {
         setLoadingText(loadingText + '.');
-      }, 700)
+        if (loadingText === "Loading....") setLoadingText("Loading");
+      }, 1000)
     });
   }, [loadingText])
   return (
@@ -44,7 +47,7 @@ function App() {
           {renderSecondSliderBar(sliderBarMenu)}
         </div>
         <AppRouter />
-      </div> : <p className='text-base text-[var(--black-text)]'>{loadingText}</p> : <LoginView />}
+      </div> : <p className='text-center text-sm font-normal text-[var(--black-text)]'>{loadingText} <Loading className='mx-auto block w-14' /></p> : <LoginView />}
     </>
   );
 }

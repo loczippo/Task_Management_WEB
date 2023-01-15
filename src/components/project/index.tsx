@@ -27,7 +27,7 @@ function Project(props: any): ReactJSXElement {
                         <div className={`duration-300 transition-all ${toggleProject ? 'rotate-90' : ''}`}>
                             <ArrowRightIcon className='mediumIcon' />
                         </div>
-                        <Brightness1Icon className={`text-red-500 miniIcon pl-1 pr-1`} />
+                        <Brightness1Icon className={`text-red-500 boxIcon pl-1 pr-1`} />
                         <h1 className='pl-1'>{projectName}</h1>
                         <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover/item:visible'>
                             <MoreVertIcon className='primaryIcon text-[var(--blur-text)]' />
@@ -38,7 +38,7 @@ function Project(props: any): ReactJSXElement {
                         <div className={`duration-300 transition-all ${toggleProject ? 'rotate-90' : ''}`}>
                             <ArrowRightIcon className='mediumIcon' />
                         </div>
-                        <Brightness1Icon className={`text-red-500 miniIcon pl-1 pr-1`} />
+                        <Brightness1Icon className={`text-red-500 boxIcon pl-1 pr-1`} />
                         <h1 className='pl-1'>{projectName}</h1>
                         <div className='absolute right-[9px] invisible duration-100 ease-in-out transform-all group-hover/item:visible'>
                             <MoreVertIcon className='primaryIcon text-[var(--blur-text)]' />
