@@ -24,17 +24,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState('Loading');
 
-  const [isLogin] = useState(true);
+  const [isLogin] = useState(false);
 
   useEffect(() => {
     new Promise(() => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 999000);
+      }, 3000);
       setTimeout(() => {
         setLoadingText(loadingText + '.');
-        if (loadingText === "Loading....") setLoadingText("Loading");
-      }, 1000)
+        if (loadingText === "Loading....") setLoadingText("Loading.");
+      }, 500)
     });
   }, [loadingText])
   return (
@@ -47,7 +47,7 @@ function App() {
           {renderSecondSliderBar(sliderBarMenu)}
         </div>
         <AppRouter />
-      </div> : <p className='text-center text-sm font-normal text-[var(--black-text)]'>{loadingText} <Loading className='mx-auto block w-14' /></p> : <LoginView />}
+      </div> : <p className='min-h-screen flex justify-center items-center text-center text-sm font-normal text-[var(--black-text)]'>{loadingText} <Loading className='w-8' /></p> : <LoginView />}
     </>
   );
 }

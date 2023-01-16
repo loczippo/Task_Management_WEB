@@ -64,6 +64,10 @@ body::-webkit-scrollbar {
   width: 8px;
 }
 
+body:-webkit-scrollbar-thumb:horizontal {
+  width: 8px;
+}
+
 body::-webkit-scrollbar-thumb {
   border-radius: 100rem;
   background-color: var(--gray-text);

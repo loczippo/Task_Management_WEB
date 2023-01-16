@@ -1,8 +1,33 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Link } from "react-router-dom";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from 'react';
 
 function LoginView(): ReactJSXElement {
+
+
+    const [viewPasswords, setViewPassword] = useState('password');
+    const [displayViewPasswords, setDisplayViewPasswords] = useState(false);
+
+    const handlerViewPassword = () => {
+        viewPasswords === 'text' ? setViewPassword('password') : setViewPassword('text')
+        setTimeout(() => {
+            setViewPassword('password');
+        }, 1000)
+    }
+
+    const displayViewPassword = (event: any) => {
+        event.target.value.length > 0 ? setDisplayViewPasswords(true) : setDisplayViewPasswords(false);
+    }
+
+    const handlerLogin = () => {
+        setOTP(true);
+    }
+
+    const [isOTP, setOTP] = useState(false);
+    
     return (
         <div className="page_content min-h-full min-w-full relative bg-[var(--primary-color)]">
             <div className="flex">
@@ -18,8 +43,8 @@ function LoginView(): ReactJSXElement {
                         </div>
                     </div>
                     <div className="body px-2 items-center flex justify-center my-0 mx-auto mb-10 h-full">
-                        <main className="py-4 relative z-10 ">
-                            <form className="opacity-100 transform-none bg-[var(--white-100)] rounded-lg m-auto p-16 pt-8 duration-75 transition-all  max-w-max sm:max-w-max" action="">
+                        <main className="py-4 relative z-10">
+                            <form className="opacity-100 transform-none bg-[var(--white-100)] rounded-lg m-auto py-16 px-16 sm:px-20 pt-8 duration-75 transition-all  max-w-max sm:max-w-max" action="">
                             <h1 className="text-4xl text leading-[48px] mb-4 text-center text-[var(--black-text)] font-medium">Get Planning!</h1>
                                     <p className="text-xl tracking-[-.0125em] leading-6 mt-[-0.5rem] text-center text-[var(--gray-text)] font-medium">Log in to your Workspace account.</p>
                                     <div className="mt-4 mb-3">
@@ -32,22 +57,26 @@ function LoginView(): ReactJSXElement {
                                                     </div>
                                                 </div>
                                                 <div className="items-stretch flex-col overflow-hidden p-0">
-                                                    <label htmlFor="email" className="text-[10px] uppercase">Password</label>
+                                                    <label htmlFor="password" className="text-[10px] uppercase">Password</label>
                                                     <div className="flex flex-1 relative">
-                                                        <input placeholder="Minimum 8 characters..." type="password" className="pl-2 text-[12.5px] border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md" />
+                                                        <input placeholder="Minimum 8 characters..." onChange={e=>displayViewPassword(e)} type={viewPasswords} className="pl-2 text-[12.5px] border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md" />
+                                                        <div className="absolute right-3 top-2 text-[var(--gray-text)]" onClick={handlerViewPassword}>{(displayViewPasswords) ? (viewPasswords === 'password' ? <VisibilityIcon /> : <VisibilityOffIcon />) : null}</div>
                                                     </div>
                                                 </div>
-                                                <div className="items-stretch flex-col overflow-hidden p-0 hidden">
-                                                    <label htmlFor="email" className="text-[10px]">OTP</label>
+                                                {
+                                                    (isOTP) ? <div className="items-stretch flex-col overflow-hidden p-0">
+                                                    <label htmlFor="otp" className="text-[10px]">OTP</label>
                                                     <div className="flex flex-1 relative">
-                                                        <input type="text" className="pl-2 text-[12.5px] border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 rounded-md" />
+                                                        <input type="text" placeholder="OTP required..." maxLength={5} className="pl-2 text-[12.5px] border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 rounded-md" />
                                                     </div>
                                                 </div>
+                                                : null
+                                                }
                                                 <div className="items-stretch flex-col overflow-hidden p-0 mt-4">
-                                                    <button className="rounded-md py-3 mt-4 leading-4 bg-[var(--button-icon-color)] w-full text-sm text-[var(--white-text)]">Log in</button>
+                                                    <button type="button" onClick={handlerLogin} className="rounded-md py-3 mt-4 leading-4 bg-[var(--button-icon-color)] w-full text-sm text-[var(--white-text)]">{!(isOTP) ? 'Log in' : 'Continue to log in'}</button>
                                                 </div>
                                                 <div className="items-stretch flex-col overflow-hidden p-0">
-                                                    <button className="rounded-md py-3 mt-4 leading-4  w-full text-sm text-[var(--gray-text)] border border-[var(--gray-text)]">Log in with SSO</button>
+                                                    <button type="button" className="rounded-md py-3 mt-4 leading-4  w-full text-sm text-[var(--gray-text)] border border-[var(--gray-text)]">Log in with SSO</button>
                                                 </div>
                                                 <div className="text-center pt-8 flex-col overflow-hidden p-0">
                                                     <Link to="" className="font-medium text-sm text-[var(--button-icon-color)]">Forgoten password?</Link>
