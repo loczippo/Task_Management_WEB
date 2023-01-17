@@ -5,7 +5,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 
-function LoginView(): ReactJSXElement {
+function RegisterView(): ReactJSXElement {
   const [viewPasswords, setViewPassword] = useState(false);
   const [displayViewPasswords, setDisplayViewPasswords] = useState(false);
 
@@ -22,25 +22,13 @@ function LoginView(): ReactJSXElement {
       : setDisplayViewPasswords(false);
   };
 
-  const handlerLogin = () => {
-    setOTP(true);
-    setDisplayViewPasswords(false);
-  };
-
-  const handlerOTP = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const re = /^[0-9\b]+$/;
-
-    if (e.target.value === "" || re.test(e.target.value)) {
-      setInputOTP(e.target.value);
-    }
-  };
-
-  const [isInputOTP, setInputOTP] = useState("");
-
-  const [isOTP, setOTP] = useState(false);
-
   return (
-    <div className="page_content  min-h-screen min-w-screen  relative bg-[var(--primary-color)]">
+    <div
+      style={{
+        background: `linear-gradient(0deg, rgba(44, 17, 56, 0.86), rgba(44, 17, 56, 0.86)), url('background.png')`,
+      }}
+      className="page_content min-h-screen min-w-screen relative"
+    >
       <div className="flex">
         <div className="auth flex-col min-h-[45rem] sm:min-h-[40rem] w-full h-full flex justify-between tracking-normal relative">
           <div className="header items-center z-50 w-full relative pt-4 px-8 min-h-max max-w-[1800px] my-0 mx-auto justify-between flex-wrap flex text-[var(--primary-color)]">
@@ -53,30 +41,30 @@ function LoginView(): ReactJSXElement {
             </a>
             <div className="text-right flex-grow sm:block hidden">
               <Link
-                to="/register"
+                to="/login"
                 className="bg-opacity-0 bg-[var(--bg-nav-login)] rounded-full  mr-[6px] py-4 px-6 duration-200 transition-all ease"
               >
                 <span className="text-[var(--white-text)] text-[12.5px] lg:inline hidden">
-                  Don't have an account?
+                  Already signed up?
                 </span>
                 <span className="pl-2 pr-[2px] text-[var(--white-text)] opacity-100 text-[12.5px] font-medium">
-                  Signup
+                  Log in
                 </span>
                 <ArrowRightAltIcon className="teamsIcon text-[var(--white-text)]" />
               </Link>
             </div>
           </div>
-          <div className="body px-2 items-center flex justify-center my-0 mx-auto mb-[5.5rem] sm:mb-10 h-full">
+          <div className="body px-2 items-center flex justify-center my-0 mx-auto mb-[5.5rem] sm:mb-10 h-full sm:w-[35rem]">
             <main className="py-4 relative z-10">
               <form
                 className="opacity-100 transform-none bg-[var(--white-100)] rounded-lg m-auto py-16 pb-12 px-16 sm:px-20 pt-8 duration-75 transition-all  max-w-max sm:max-w-max"
                 action=""
               >
                 <h1 className="text-4xl text leading-[48px] mb-4 text-center text-[var(--black-text)] font-medium">
-                  Get Planning!
+                  Create your Project Plan account
                 </h1>
-                <p className="text-xl tracking-[-.0125em] leading-6 mt-[-0.5rem] text-center text-[var(--gray-text)] font-medium">
-                  Log in to your Workspace account.
+                <p className="break-normal text-xl tracking-[-.0125em] leading-6 mt-[-0.5rem] text-center text-[var(--gray-text)] font-medium">
+                Please add your work email and select a password to sign up and start your free 14-day trial.
                 </p>
                 <div className="mt-2">
                   <div className="flex">
@@ -90,7 +78,6 @@ function LoginView(): ReactJSXElement {
                         </label>
                         <div className="flex flex-1 relative">
                           <input
-                            readOnly={isOTP}
                             type="text"
                             placeholder="Type email here...."
                             className="pl-2 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md"
@@ -106,7 +93,6 @@ function LoginView(): ReactJSXElement {
                         </label>
                         <div className="flex flex-1 relative">
                           <input
-                            readOnly={isOTP}
                             placeholder="Minimum 8 characters..."
                             minLength={8}
                             onChange={(e) => displayViewPassword(e)}
@@ -127,50 +113,52 @@ function LoginView(): ReactJSXElement {
                           </div>
                         </div>
                       </div>
-                      {isOTP ? (
-                        <div className="items-stretch flex-col overflow-hidden p-0">
-                          <label
-                            htmlFor="otp"
-                            className="text-[10px] uppercase font-medium"
+                      <div className="items-stretch flex-col overflow-hidden p-0">
+                        <label
+                          htmlFor="password"
+                          className="text-[10px] uppercase font-medium"
+                        >
+                          RePassword
+                        </label>
+                        <div className="flex flex-1 relative">
+                          <input
+                            placeholder="Repassword..."
+                            minLength={8}
+                            onChange={(e) => displayViewPassword(e)}
+                            type={viewPasswords ? "text" : "password"}
+                            className="pl-2 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md"
+                          />
+                          <div
+                            className="absolute right-3 top-2 text-[var(--gray-text)]"
+                            onClick={handlerViewPassword}
                           >
-                            Otp
-                          </label>
-                          <div className="flex flex-1 relative">
-                            <input
-                              value={isInputOTP}
-                              onChange={(e) => handlerOTP(e)}
-                              type="text"
-                              placeholder="OTP required..."
-                              maxLength={5}
-                              className="pl-2 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 rounded-md"
-                            />
+                            {displayViewPasswords ? (
+                              viewPasswords ? (
+                                <VisibilityOffIcon />
+                              ) : (
+                                <VisibilityIcon />
+                              )
+                            ) : null}
                           </div>
                         </div>
-                      ) : null}
+                      </div>
+                      <div className="items-stretch flex-col overflow-hidden mt-2">
+                        <div className="flex flex-1 relative justify-center items-center">
+                          <input
+                            type="checkbox"
+                            className="pl-2 mr-3 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-5"
+                          />
+                          <span className="w-full text-[12.5px] ">Yes, I have read and I do agree with Project Management <Link to="/term" className="text-[12.5px] text-[var(--button-icon-color)] underline">Terms of Service</Link> and <Link to="/privacy" className="text-[12.5px] text-[var(--button-icon-color)] underline">Privacy Policy</Link>.</span>
+                        </div>
+                      </div>
+                      
                       <div className="items-stretch flex-col overflow-hidden p-0 mt-4">
                         <button
                           type="button"
-                          onClick={handlerLogin}
                           className="rounded-md py-3 mt-4 leading-4 bg-[var(--button-icon-color)] w-full text-sm text-[var(--white-text)]"
                         >
-                          {!isOTP ? "Log in" : "Continue to log in"}
+                          Sign up
                         </button>
-                      </div>
-                      <div className="items-stretch flex-col overflow-hidden p-0">
-                        <button
-                          type="button"
-                          className="rounded-md py-3 mt-4 leading-4  w-full text-sm text-[var(--gray-text)] border border-[var(--gray-text)]"
-                        >
-                          Log in with SSO
-                        </button>
-                      </div>
-                      <div className="text-center pt-8 flex-col overflow-hidden p-0">
-                        <Link
-                          to=""
-                          className="font-medium text-sm text-[var(--button-icon-color)]"
-                        >
-                          Forgoten password?
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -179,7 +167,7 @@ function LoginView(): ReactJSXElement {
               <div className="text-center flex justify-center items-center pt-6 md:hidden">
                 <div className="bg-opacity-0 bg-[var(--bg-nav-login)] rounded-full p-3">
                   <span className="pl-2 pr-[2px] text-[var(--white-text)] opacity-100 text-[12.5px] font-medium">
-                    Signup
+                    Log in
                   </span>
                   <ArrowRightAltIcon className="teamsIcon text-[var(--white-text)]" />
                 </div>
@@ -192,4 +180,4 @@ function LoginView(): ReactJSXElement {
   );
 }
 
-export default LoginView;
+export default RegisterView;

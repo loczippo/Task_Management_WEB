@@ -6,7 +6,6 @@ import { SliderbarState } from './interfaces/sliderbar.interface';
 import { PrimarySliderBarEnum } from './enums';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import 'react-loading-skeleton/dist/skeleton.css'
-import { LoginView } from './views';
 
 import { ReactComponent as Loading } from './assets/img/loading.svg';
 
@@ -47,7 +46,7 @@ function App() {
           {renderSecondSliderBar(sliderBarMenu)}
         </div>
         <AppRouter />
-      </div> : <p className='min-h-screen flex justify-center items-center text-center text-sm font-normal text-[var(--black-text)]'>{loadingText} <Loading className='w-8' /></p> : <LoginView />}
+      </div> : <p className='min-h-screen flex justify-center items-center text-center text-sm font-normal text-[var(--black-text)]'>{loadingText} <Loading className='w-8' /></p> : <AppRouter />}
     </>
   );
 }
