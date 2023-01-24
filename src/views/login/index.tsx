@@ -40,7 +40,7 @@ function LoginView(): ReactJSXElement {
   const [isOTP, setOTP] = useState(false);
 
   return (
-    <div className="page_content  min-h-screen min-w-screen  relative bg-[var(--primary-color)]">
+    <div className="page_content min-h-screen min-w-screen  relative bg-[var(--primary-color)]">
       <div className="flex">
         <div className="auth flex-col min-h-[45rem] sm:min-h-[40rem] w-full h-full flex justify-between tracking-normal relative">
           <div className="header items-center z-50 w-full relative pt-4 px-8 min-h-max max-w-[1800px] my-0 mx-auto justify-between flex-wrap flex text-[var(--primary-color)]">
@@ -66,7 +66,7 @@ function LoginView(): ReactJSXElement {
               </Link>
             </div>
           </div>
-          <div className="body px-2 items-center flex justify-center my-0 mx-auto mb-[5.5rem] sm:mb-10 h-full">
+          <div className="body px-2 items-center flex justify-center my-0 mx-auto mb-[5.5rem] sm:mb-10 sm:mt-32 h-full">
             <main className="py-4 relative z-10">
               <form
                 className="opacity-100 transform-none bg-[var(--white-100)] rounded-lg m-auto py-16 pb-12 px-16 sm:px-20 pt-8 duration-75 transition-all  max-w-max sm:max-w-max"
