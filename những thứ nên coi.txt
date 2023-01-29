@@ -4,3 +4,4 @@ https://www.geeksforgeeks.org/how-to-create-load-balancing-servers-using-node-js
 https://plan.toggl.com/#timeline/881244/teams/903728?zoom=month
 https://dev.to/djamaile/how-i-structure-my-react-ts-applications-160g
 https://github.com/klendi/react-top-loading-bar
+https://ui.dev/react-router-protected-routes-authentication

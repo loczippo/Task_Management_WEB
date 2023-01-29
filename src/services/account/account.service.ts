@@ -1,23 +1,19 @@
-import { RegisterAccount } from "../../interfaces";
-import axios from 'axios'
+import { AxiosResponse } from "axios";
+import { RegisterAccount, TokenData } from "../../interfaces";
+import { http } from "../../utils";
 
 class AccountService {
-  u = (path: string): string => process.env.REACT_APP_API_URL + path;
 
-  register = async (registerDto: RegisterAccount): Promise<RegisterAccount> => {
+  register = async (registerDto: RegisterAccount): Promise<AxiosResponse<RegisterAccount>> => {
 
-    await axios({
-        method: 'POST',
-        url: this.u(`/users`),
-        data: registerDto
-      })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
-    return registerDto;
+    return await http.post<RegisterAccount>('users', registerDto)
+      
+  };
+
+  login = async (registerDto: RegisterAccount) => {
+
+    return await http.post('auth', registerDto)
+      
   };
   
 }
