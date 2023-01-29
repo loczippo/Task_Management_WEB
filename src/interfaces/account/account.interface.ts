@@ -4,3 +4,13 @@ export interface RegisterAccount {
     first_name: string;
     password: string;
 }
+
+export interface FullRegisterAccount extends RegisterAccount {
+    repassword: string | undefined;
+    term?: boolean;
+}
+
+export interface TokenData {
+    token: string;
+    refreshToken: string;
+}

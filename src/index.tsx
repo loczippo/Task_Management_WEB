@@ -6,18 +6,24 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./stores";
 import { BrowserRouter } from "react-router-dom";
-import axios from 'axios';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-axios.defaults.headers.common['Authorization'] = '';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+const queryClient = new QueryClient();
+
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <ToastContainer/>
+        <App />
+      </QueryClientProvider>
     </Provider>
   </BrowserRouter>
 );
