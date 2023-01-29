@@ -1,2 +1,3 @@
-import { RegisterAccount, TokenData } from './account/account.interface';
-export type { RegisterAccount, TokenData }
+import { RegisterAccount } from './account/account.interface';
+
+export type { RegisterAccount }
