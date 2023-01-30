@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { LoginAccount } from "../../interfaces/account/account.interface";
+import { AccountService } from "../../services";
+import { useForm } from "react-hook-form";
+import { getAxiosErrorResponse } from "../../utils/cupcake";
 
 function LoginView(): ReactJSXElement {
   const [viewPasswords, setViewPassword] = useState(false);
@@ -22,10 +27,7 @@ function LoginView(): ReactJSXElement {
       : setDisplayViewPasswords(false);
   };
 
-  const handlerLogin = () => {
-    setOTP(true);
-    setDisplayViewPasswords(false);
-  };
+  
 
   const handlerOTP = (e: React.ChangeEvent<HTMLInputElement>) => {
     const re = /^[0-9\b]+$/;
@@ -38,6 +40,35 @@ function LoginView(): ReactJSXElement {
   const [isInputOTP, setInputOTP] = useState("");
 
   const [isOTP, setOTP] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    trigger,
+    formState: { errors },
+  } = useForm<LoginAccount>({
+  });
+
+  const loginAccount = useMutation({
+    mutationFn: (body: LoginAccount) => {
+      return AccountService.login(body);
+    },
+  });
+
+  const handlerLogin = (data: LoginAccount) => {
+    // setOTP(true);
+    setDisplayViewPasswords(false);
+
+    loginAccount.mutate(data, {
+      onSuccess: (response) => {
+        console.log("Login thành công ", response.data);
+      },
+      onError: (error) => {
+        console.log(getAxiosErrorResponse(error))
+      },
+    });
+  };
 
   return (
     <div className="page_content min-h-screen min-w-screen relative bg-[var(--primary-color)]">
@@ -70,7 +101,8 @@ function LoginView(): ReactJSXElement {
             <main className="py-4 relative z-10">
               <form
                 className="opacity-100 transform-none bg-[var(--white-100)] rounded-lg m-auto py-16 pb-12 px-16 sm:px-20 pt-8 duration-75 transition-all  max-w-max sm:max-w-max"
-                action=""
+                action="POST"
+                onSubmit={handleSubmit(handlerLogin)}
               >
                 <h1 className="text-4xl text leading-[48px] mb-4 text-center text-[var(--black-text)] font-medium">
                   Get Planning!
@@ -94,6 +126,7 @@ function LoginView(): ReactJSXElement {
                             type="text"
                             placeholder="Type email here...."
                             className="pl-2 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md"
+                            {...register("email")}
                           />
                         </div>
                       </div>
@@ -109,9 +142,12 @@ function LoginView(): ReactJSXElement {
                             readOnly={isOTP}
                             placeholder="Minimum 8 characters..."
                             minLength={8}
-                            onChange={(e) => displayViewPassword(e)}
+                            // onChange={(e) => displayViewPassword(e)}
                             type={viewPasswords ? "text" : "password"}
                             className="pl-2 text-sm border border-[var(--gray-text)] focus:outline-none focus:border-[var(--button-icon-color)] h-10 w-full rounded-md"
+                            {...register("password", {onChange(event) {
+                              displayViewPassword(event);
+                            },})}
                           />
                           <div
                             className="absolute right-3 top-2 text-[var(--gray-text)]"
@@ -149,13 +185,22 @@ function LoginView(): ReactJSXElement {
                       ) : null}
                       <div className="items-stretch flex-col overflow-hidden p-0 mt-4">
                         <button
-                          type="button"
-                          onClick={handlerLogin}
                           className="rounded-md py-3 mt-4 leading-4 bg-[var(--button-icon-color)] w-full text-sm text-[var(--white-text)]"
                         >
                           {!isOTP ? "Log in" : "Continue to log in"}
                         </button>
                       </div>
+                      {loginAccount.isError && (
+                          <p className="mt-2 text-sm text-red-600">
+                            <span className="font-medium"></span>
+                            <>
+                              {
+                                getAxiosErrorResponse(loginAccount.error)
+                                  .message
+                              }
+                            </>
+                          </p>
+                        )}
                       <div className="items-stretch flex-col overflow-hidden p-0">
                         <button
                           type="button"

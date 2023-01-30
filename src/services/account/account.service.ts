@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
 import { RegisterAccount, TokenData } from "../../interfaces";
+import { LoginAccount } from "../../interfaces/account/account.interface";
 import { http } from "../../utils";
 
 class AccountService {
@@ -10,9 +11,11 @@ class AccountService {
       
   };
 
-  login = async (registerDto: RegisterAccount) => {
+  login = async (loginDto: LoginAccount) => {
 
-    return await http.post('auth', registerDto)
+    return await http.post('auth', loginDto, {
+      withCredentials: true
+    })
       
   };
   
